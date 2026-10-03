@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pulse</title>
+<meta name="description" content="Personal tracker for workouts, food and body weight.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pulse">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main id="view" aria-live="polite"></main>
+
+<div id="restbar" hidden>
+  <span class="rest-label">Rest</span>
+  <span id="rest-time">0:00</span>
+  <button class="pill" data-act="restAdd" data-s="-15">-15</button>
+  <button class="pill" data-act="restAdd" data-s="15">+15</button>
+  <button class="pill strong" data-act="restSkip">Skip</button>
+</div>
+
+<nav id="tabs" aria-label="Sections">
+  <button data-act="goto" data-tab="today"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Today</span></button>
+  <button data-act="goto" data-tab="train"><svg viewBox="0 0 24 24"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></svg><span>Train</span></button>
+  <button data-act="goto" data-tab="food"><svg viewBox="0 0 24 24"><path d="M7 3v18M4.5 3v5a2.5 2.5 0 0 0 5 0V3M17 21V3c-2.2 1.2-3.5 3.6-3.5 6.5S14.6 13 17 13"/></svg><span>Food</span></button>
+  <button data-act="goto" data-tab="weight"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 10a4.5 4.5 0 0 1 9 0z"/><path d="M12 10l1.8-2.4"/></svg><span>Weight</span></button>
+  <button data-act="goto" data-tab="more"><svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg><span>Settings</span></button>
+</nav>
+
+<div id="sheet" hidden>
+  <div class="backdrop" data-act="closeSheet"></div>
+  <div class="panel" role="dialog" aria-modal="true">
+    <div class="grabber"></div>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<div id="toast" role="status" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
